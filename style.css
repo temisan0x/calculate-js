@@ -15,15 +15,31 @@ body {
   padding: 20px;
 }
 
+#displayValue {
+  color: #aaa;
+  font-size: 20px;
+  text-align: right;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  height: 40px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 10px;
+}
+
 .display {
-  background-color: #444;
+  background-color: #333;
   color: white;
-  font-size: 24px;
-  padding: 15px;
+  font-size: 34px;
+  height: 60px;
+  padding: 10px;
   text-align: right;
   border-radius: 5px;
   margin-bottom: 15px;
-  overflow-x: hidden;
+  border: none;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .buttons {

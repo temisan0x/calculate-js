@@ -13,7 +13,7 @@
       <div class="buttons">
         <button class="clear" onclick="clearDisplay()">C</button>
         <button class="operator" onclick="appendOperator('/')">/</button>
-        <button class="operator" onclick="appendOperator('*')">x</button>
+        <button class="operator" onclick="appendOperator('x')">x</button>
         <button onclick="appendNumber(7)">7</button>
         <button onclick="appendNumber(8)">8</button>
         <button onclick="appendNumber(9)">9</button>
@@ -31,101 +31,6 @@
         <button onclick="appendNumber('.')">.</button>
       </div>
     </div>
-    <script>
-      const display = document.getElementById("display");
-
-      // Append a number or decimal to the display
-
-      function appendNumber(operator) {
-        //1-9
-        display.value += operator;
-      }
-
-      // Append an operator to the display
-      function appendOperator(operator) {
-        const currentValue = display.value;
-
-        //check if display is empty
-        if (currentValue === "" | currentValue === "-") {
-            display.value += operator;;
-        }
-
-        if (currentValue === "") {
-            return;
-        }
-
-        const lastChar = currentValue.slice(-1);
-
-        if (isOperator(lastChar) || lastChar === ".") {
-          display.value = currentValue.slice(0, -1) + operator;
-        } else {
-          display.value += operator;
-        }
-      }
-
-      //helper operator to check if each assigned character is an operator
-
-      function isOperator(char) {
-        return ["+", "-", "*", "/", "%"].includes(char);
-      }
-
-      // Clear the display
-      function clearDisplay() {
-        display.value = "";
-      }
-
-      displayValue = display.value;
-
-      calculate(displayValue);
-
-      // Calculate the result
-
-      function calculate() {
-        const expression = display.value;
-
-        try {
-          const result = evaluateExpression(expression);
-          display.value = result;
-        } catch (error) {
-          display.value = "Error";
-        }
-      }
-
-      // Custom expression evaluator
-      function evaluateExpression(expression) {
-        const tokens = expression.match(/\d+\.?\d*|\+|\-|\*|\/|%/g); // Split into tokens
-        if (!tokens) throw new Error("Invalid expression");
-
-        let result = parseFloat(tokens[0]);
-
-        for (let i = 1; i < tokens.length; i += 2) {
-          const operator = tokens[i];
-          const nextNumber = parseFloat(tokens[i + 1]);
-
-          switch (operator) {
-            case "+":
-              result += nextNumber;
-              break;
-            case "-":
-              result -= nextNumber;
-              break;
-            case "*":
-              result *= nextNumber;
-              break;
-            case "/":
-              if (nextNumber === 0) throw new Error("Division by zero");
-              result /= nextNumber;
-              break;
-            case "%":
-              result %= nextNumber;
-              break;
-            default:
-              throw new Error("Invalid operator");
-          }
-        }
-
-        return result;
-      }
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
