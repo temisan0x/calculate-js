@@ -5,13 +5,14 @@ const displayValue = document.getElementById("displayValue");
 
 function appendNumber(num) {
   displayValue.style.display = "flex";
+
   display.value += num;
   updateDisplayValue();
 }
 
 // Append an operator to the display
 function appendOperator(operator) {
-  const currentValue = display.value;
+  const currentValue = display.type.color = "red"
 
   //check if display is empty
   if ((currentValue === "") | (currentValue === "-")) {
@@ -45,7 +46,6 @@ function clearDisplay() {
 }
 
 // Calculate the result
-
 function calculate() {
   try {
     const expression = display.value.replace(/x/g, "*");
