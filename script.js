@@ -34,7 +34,6 @@ function appendOperator(operator) {
 }
 
 //helper operator to check if each assigned character is an operator
-
 function isOperator(char) {
   return ["+", "-", "*", "/", "%"].includes(char);
 }
